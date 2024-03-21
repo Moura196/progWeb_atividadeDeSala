@@ -1,1 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
 
+<head>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de cadastro</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="gabriel.css">
+
+</head>
+
+<body>
+
+    <div class="page">
+
+        <nav>
+            <a id="logo" href="#">
+                <img src="./imagens/miniOndas.svg" 
+                alt="Logo mini ondas">
+            </a>
+            <!--Utilizando lista não ordenada para fazer a barra superior-->
+            <ul>
+                <li><a href="brunoIndex.html">Home</a></li>
+                <li><a href="gabriel.html">Cadastro</a></li>
+                <li><a href="caique.html">Picos do Campeche</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <h2>Junte-se às nossas Trilhas Guiadas na Praia do Campeche!</h2>
+
+            <p>Mergulhe na beleza deslumbrante da Praia do Campeche ao participar
+            das nossas trilhas guiadas. Explore as paisagens deslumbrantes, a vegetação
+            exuberante e os tesouros escondidos deste paraíso costeiro intocado com a
+            experiência dos nossos guias experientes. Seja você um caminhante ávido ou 
+            apenas começando a descobrir as alegrias das trilhas, nossas trilhas oferecem
+            algo para todos, desde passeios tranquilos ao longo da costa até rotas mais 
+            aventureiras através de terrenos acidentados.
+                
+            Para se inscrever em nossas trilhas, basta preencher o formulário abaixo com
+            seus detalhes e as datas preferidas para a excursão. Nossa equipe entrará em
+            contato em breve para confirmar sua reserva e fornecer todas as informações 
+            necessárias, incluindo pontos de encontro, dificuldade da trilha e o que trazer.
+            Não perca esta oportunidade de vivenciar as maravilhas naturais da Praia do 
+            Campeche de perto e pessoalmente. Calce suas botas de caminhada, respire o ar 
+            fresco do mar e embarque em uma jornada inesquecível por um dos destinos costeiros 
+            mais encantadores do Brasil!</p>
+
+            <form id="signupForm">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required><br><br>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required><br><br>
+
+                <label for="idade">Idade:</label>
+                <input type="number" id="idade" name="idade" required><br><br>
+
+                <button type="submit">Cadastrar</button>
+            </form>
+
+            <script>
+                document.getElementById('signupForm').addEventListener('submit', function (event) {
+                    event.preventDefault(); // Prevent form submission
+
+                    var name = document.getElementById('name').value;
+                    var email = document.getElementById('email').value;
+                    var idade = document.getElementById('idade').value;
+
+                    // Retrieve existing sign-up data from local storage or initialize as an empty array
+                    var signUpData = JSON.parse(localStorage.getItem('signUpData')) || [];
+
+                    // Add new sign-up entry
+                    signUpData.push({ name: name, email: email, idade: idade });
+
+                    // Store updated sign-up data back to local storage
+                    localStorage.setItem('signUpData', JSON.stringify(signUpData));
+
+                    // Redirect to the table page
+                    window.location.href = 'Moura196branch.html';
+                });
+            </script>
+        </main>
+
+        <footer>
+            Fale conosco no instagram
+            <a href="https://instagram.com/" 
+            target="_blank">@praiadocampeche
+            </a>
+        </footer>
+
+    </div>
+
+</body>
+
+</html>
